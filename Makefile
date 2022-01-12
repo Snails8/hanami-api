@@ -24,7 +24,11 @@ app:
 install:
 	docker-compose build
 	docker-compose run --rm app bundle install
+	cp .env.development.example .env.development
+	cp .env.test.exmaple .env.test.example
 	docker compose run --rm app bundle exec hanami new . --database=postgres
+	docker compose run --rm app bundle exec hanami db prepare
+
 
 reinstall:
 	@make destroy

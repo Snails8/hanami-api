@@ -1,3 +1,7 @@
 /.idea/
 /.docker/db/
 /vendor/
+
+# .env
+/.env.development
+/.env.test
