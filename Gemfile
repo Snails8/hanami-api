@@ -1,2 +1,3 @@
 source 'https://rubygems.org'
-gem 'rails', '~> 6.0.4'
+
+gem 'hanami', '~> 1.3.5'
