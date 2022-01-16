@@ -1,5 +1,5 @@
 DC := docker-compose exec app
-ARG := $1
+a := $1 # means argument
 
 up:
 	docker-compose up --build
@@ -35,7 +35,7 @@ reinstall:
 	@make install
 
 migrate:
-	docker-compose exec app php artisan migrate:fresh --seed
+	HANAMI_ENV=test ${DC} bundle exec hanami db prepare
 
 seed:
 	docker-compose exec app php artisan db:seed
@@ -77,4 +77,7 @@ sample-%:
 	echo ${@:%=%}
 
 show-route:
-	docker-compose exec app bundle exec hanami routes
+	${DC} bundle exec hanami routes
+
+model:
+	${DC} bundle exec hanami generate model ${a}
