@@ -75,3 +75,6 @@ c-%:
 	docker-compose exec app php artisan make:controller ${@:c-%=%}
 sample-%:
 	echo ${@:%=%}
+
+show-route:
+	docker-compose exec app bundle exec hanami routes
